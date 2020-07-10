@@ -39,13 +39,15 @@ import json
 from absl import app
 from absl import flags
 import pandas as pd
+import os
+print(os.getcwd())
 
 FLAGS = flags.FLAGS
 
-flags.DEFINE_string("input", "data/train.tsv", "Input tsv file.")
+flags.DEFINE_string("input", "data/dev.tsv", "Input tsv file.")
 
 flags.DEFINE_string(
-    "mapping_dict", None,
+    "mapping_dict", "data/ekman_mapping.json",
     "File containing a mapping dictionary from new emotions to old emotions.")
 
 flags.DEFINE_string("emotion_file", "data/emotions.txt",
@@ -54,7 +56,7 @@ flags.DEFINE_string("emotion_file", "data/emotions.txt",
 flags.DEFINE_string("output_emotion_file", "data/new_emotions.txt",
                     "Output file for list of new emotions.")
 
-flags.DEFINE_string("output_data", "data/new_train.tsv",
+flags.DEFINE_string("output_data", "data/new_dev.tsv",
                     "Output file new data.")
 
 
